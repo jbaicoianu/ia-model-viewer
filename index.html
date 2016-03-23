@@ -1,0 +1,75 @@
+<head>
+  <!-- three.js includes -->
+  <script src="scripts/ext/three.min.js"></script>
+  <script src="scripts/ext/Detector.js"></script>
+  <script src="scripts/ext/stats.min.js"></script>
+  <script src="scripts/ext/STLLoader.js"></script>
+  <script src="scripts/ext/VRMLLoader.js"></script>
+  <script src="scripts/ext/OrbitControls.js"></script>
+  <script src="scripts/ext/TrackballControls.js"></script>
+  <!-- canvas renderer stuff, disabled because it sucks
+  <script src="scripts/ext/Projector.js"></script>
+  <script src="scripts/ext/CanvasRenderer.js"></script>
+  -->
+  <script src="scripts/ext/droid_sans_regular.typeface.js"></script>
+  <script src="scripts/ext/dat.gui.min.js"></script>
+
+  <!-- IA model viewer includes -->
+  <script src="scripts/IA/ModelFile.js"></script>
+  <script src="scripts/IA/ModelScene.js"></script>
+  <script src="scripts/IA/ModelViewer.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+  <style>
+    body {
+      margin: 0;
+    }
+    canvas {
+      margin: 0 auto;
+      box-shadow: 0 0 25px rgba(0,0,0,.8);
+      display: block;
+    }
+  </style>
+
+</head>
+<body>
+  <script>
+    viewer = new IA.ModelViewer();
+
+    viewer.addModels([
+      'WinterProofShoe_screwspike.stl',
+      'bigmakerbottable4.stl',
+      'birdfeeder_4_0_thingiverse.stl',
+      'Dalpek_Gyro_Air_v5.stl',
+      'Nyx.stl',
+      'root_planter_box_v4_solid.stl',
+      'wooly_sheep.stl',
+      'assemblyb.stl',
+      'simple.wrl',
+      'house.wrl',
+    ], 'models/');
+    
+    viewer.addMaterials({
+      'Gold':    { color: 0xaa9944, specular:0xbbaa99, shininess:50, combine: THREE.MultiplyOperation, reflectivity: .6, overdraw: true },
+      'Carmine': { color: 0x770000, specular:0xffaaaa, combine: THREE.MultiplyOperation },
+      'Chrome':  { color: 0xffffff, specular:0xffffff, combine: THREE.MultiplyOperation },
+      'Steel':   { color: 0xeeeeee, combine: THREE.MixOperation, shininess: 60, reflectivity: .1 },
+      'Brass':   { color: 0x543907, specular:0xc8921d, shininess:10, combine: THREE.MixOperation, reflectivity: 0.1 },
+      'Orange Plastic':  { color: 0xff6600, combine: THREE.MixOperation, reflectivity: 0 },
+      'Blue Plastic':    { color: 0x226699, combine: THREE.MixOperation, reflectivity: 0 },
+      'Red Plastic':     { color: 0x660000, combine: THREE.MixOperation, reflectivity: 0 },
+      'Black Plastic':   { color: 0x000000, combine: THREE.MixOperation, reflectivity: 0 },
+      'White Plastic':   { color: 0xffffff, combine: THREE.MixOperation, reflectivity: 0 },
+    });
+/*
+    viewer.addScenes([
+      'park',
+      'sky'
+    ]);
+*/
+
+    //viewer.setModel('WinterProofShoe_screwspike');
+
+  </script>
+</body>
